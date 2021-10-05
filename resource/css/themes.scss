@@ -1,0 +1,25 @@
+---
+---
+// 最顶上的两行横杠不能删除, 这个是为了让文件按照 Jekyll 标准进行读取
+@import "themes";
+
+// sass 中使用 @counter-style 无效，因此定义在此处
+@counter-style lno {
+  system: extends decimal;
+  pad: 2 "0";
+}
+
+.post-content pre {
+  counter-reset: line;
+}
+.post-content pre .line {
+  counter-increment: line;
+  box-decoration-break: clone;
+}
+.post-content pre .line::before {
+  content: counter(line,lno);
+}
+/* 夜间模式图片颜色反转 */
+.night .post-content img {
+  filter: invert(90%);
+}

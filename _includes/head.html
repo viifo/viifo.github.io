@@ -1,0 +1,38 @@
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="keyword"  content="{{ site.keyword }}">
+    <link rel="shortcut icon" href="{{ site.url }}/resource/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/resource/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/resource/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/resource/css/themes.css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="{{ site.url }}/resource/js/jquery.js"></script>
+    <script src="{{ site.url }}/resource/js/clipboard.js"></script>
+    <script src="{{ site.url }}/resource/js/search.js"></script>
+    <script src="{{ site.url }}/resource/js/utils.js"></script>
+    <script>
+        $(function (){
+            let body = $("#body-container")
+            let themeSwitch = $("#day-night-switch")
+            let themeClass = getTheme()
+            if (themeClass === null || themeClass === "day") {
+                body.addClass("day")
+                themeSwitch.attr("checked", false)
+            } else {
+                body.addClass("night")
+                themeSwitch.attr("checked", true)
+            }
+            body.css("min-height", $(window).height())
+        })
+        $(window).resize(function () {
+            $("#body-container").css("min-height", $(window).height())
+        })
+    </script>
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+</head>

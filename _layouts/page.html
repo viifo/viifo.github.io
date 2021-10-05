@@ -1,0 +1,77 @@
+---
+layout: default
+---
+<!-- Page Header -->
+<header class="page-header" style="background-image: url('{{ site.baseurl }}/{% if page.page-img %}{{ page.page-img }}{% else %}{{ site.page-img }}{% endif %}')">
+    <!-- search -->
+    <div class="page-search text-center">
+        <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+        <input class="search-input-common" id="page-search-input" placeholder="search title | category | tags" type="text">
+        <ul id="page-search-results" class="search-results"></ul>
+    </div>
+    <!-- /end search -->
+</header>
+<div class="page-container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-2
+        col-md-7 col-md-offset-1
+        col-sm-10 col-sm-offset-1
+        col-xs-10 col-xs-offset-1
+        page-content">
+            {{ content }}
+            <!-- Pager -->
+            {% if paginator.total_pages > 1 %}
+            <ul class="pager">
+                {% if paginator.previous_page %}
+                <li class="previous">
+                    <a href="{{ paginator.previous_page_path | replace: '//', '/' }}"><i class="fa fa-angle-double-left"></i>&nbsp;上一页</a>
+                </li>
+                {% endif %}
+                {% if paginator.next_page %}
+                <li class="next">
+                    <a href="{{ paginator.next_page_path | replace: '//', '/' }}">下一页&nbsp;<i class="fa fa-angle-double-right"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+            <!-- /end Pager -->
+        </div>
+        <!-- Categories and View project on GitHub -->
+        <div class="col-lg-2 col-lg-offset-0 col-md-3 col-md-offset-0 hidden-sm hidden-xs page-sidebar">
+            <div class="category-nav">
+                <p class="title">分类<i class="fa fa-plus"></i></p>
+                <ul id="category-ul"></ul>
+            </div>
+            <div class="sidebar-github text-center">
+                <p class="title">链接<i class="fa fa-link"></i></p>
+                <div class="github-btn">
+                    <a class="row" href="https://github.com/{{ site.github_username }}">
+                        <i class="fa fa-github fa-3x"></i>
+                        <div class="txt">
+                            View project on<br/>
+                            <span>GitHub</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /end Categories and View project on GitHub -->
+    </div>
+</div>
+<script>
+    $(function (){
+        let pageSearchInput = $("#page-search-input")
+        let searchResults = $("#page-search-results")
+        // 加载分类
+        generatorCategories($("#category-ul"))
+        // 搜索款内容改变
+        pageSearchInput.on("input", function () {
+            searchKeyWord($(this).val(), searchResults)
+        })
+        // 搜索款失去焦点时清空内容
+        pageSearchInput.blur(function () {
+            pageSearchInput.val("")
+            searchResults.empty()
+        })
+    })
+</script>

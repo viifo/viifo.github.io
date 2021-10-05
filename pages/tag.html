@@ -1,0 +1,18 @@
+---
+permalink: /tag.html
+layout: work
+textIcon: fa-tag
+---
+<div id="tag-container"></div>
+<script>
+    let flag = getParam("flag")
+    $(".work-title h1").text(flag)
+    $(".work-title h2").text("尽小者大，慎微者著。")
+    if (flag == null) {
+        window.location.href = "/404.html"
+    } else {
+        let currentPage = getParam("page")
+        if (currentPage == null) currentPage = "1"
+        searchJsonKey(parseInt(currentPage), "tags", flag, $("#tag-container"))
+    }
+</script>

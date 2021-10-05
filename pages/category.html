@@ -1,0 +1,20 @@
+---
+permalink: /category.html
+layout: work
+textIcon: fa-plus
+---
+<div id="category-container"></div>
+<script>
+    $(function () {
+        let flag = getParam("flag")
+        $(".work-title h1").text(flag)
+        $(".work-title h2").text("博观而约取，厚积而薄发。")
+        if (flag == null) {
+            window.location.href = "/404.html"
+        } else {
+            let currentPage = getParam("page")
+            if (currentPage == null) currentPage = "1"
+            searchJsonKey(parseInt(currentPage), "category", flag === "other" ? "" : flag, $("#category-container"))
+        }
+    })
+</script>

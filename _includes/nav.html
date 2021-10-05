@@ -1,0 +1,45 @@
+<!-- Navigation -->
+<nav id="nav" class="navbar navbar-default navbar-fixed-top
+{% if include.fixed %} {{ 'navbar-white' }} {% else %} {{ 'navbar-transparent' }} {% endif %}">
+    <div class="container-fluid">
+        <!-- brand -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        </div>
+        <!-- /end brand -->
+        <!-- item -->
+        <div id="navbar-item">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% for nav in site.nav-items %}
+                    <li><a href="{{ nav.url }}">{{ nav.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- /end item -->
+        <!-- dayNight switch -->
+        <label class="nav-switch">
+            <input type="checkbox" id="day-night-switch">
+            <div class="slider round"></div>
+        </label>
+        <!-- /end dayNight switch -->
+        <!-- search -->
+        <div class="navbar-search">
+            <label for="search-input">
+                <input type="text" id="search-input" class="search-input-common" placeholder="search">
+            </label>
+            <ul id="navbar-search-results" class="search-results"></ul>
+        </div>
+        <!-- /end search -->
+    </div>
+</nav>
+<script src="{{ site.url }}/resource/js/nav.js"></script>
+<script>
+    navScrollWithFixed({{ include.fixed }})
+</script>

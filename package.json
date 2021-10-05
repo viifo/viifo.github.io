@@ -1,0 +1,16 @@
+{
+  "name": "viifo.github.io",
+  "author": "Viifo",
+  "version": "1.0.0",
+  "homepage": "https://viifo.github.io",
+  "scripts": {
+    "run": "jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viifo/viifo.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/viifo/viifo.github.io/issues"
+  }
+}

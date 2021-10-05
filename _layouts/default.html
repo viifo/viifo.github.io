@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.locale }}">
+{% include head.html %}
+<body>
+<div id="body-container">
+    {% if page.layout == 'fixed' or page.layout == 'post' %}
+        {% include nav.html fixed=true %}
+    {% else %}
+        {% include nav.html%}
+    {% endif %}
+    {{ content }}
+    {% include footer.html %}
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Site settings
+title: Viifo's Blog
+description: "Viifo's Blog"
+locale: zh
+url: ""
+baseurl: ""
+nav-items:
+  - title: "Home"
+    url: /
+  - title: "Archives"
+    url: /archive
+
+# Build settings
+paginate: 10
+exclude: ["README.md","README-en.md","package.json","screenshots"]
+sass:
+  sass_dir: resource/_sass
+  style: compressed
+
+# Post settings
+permalink: /:categories/:year-:month-:day-:title.html
+
+# SNS settings
+github_username: viifo
+
+# Background settings
+page-img: resource/images/background-page.jpg
+work-img: resource/images/background-work.jpg
+# todo category setting
+# Category setting
+#category:
+#  - tag: test
+#    brief: 分类简介
+#    background: resource/images/background-page.jpg
+#  - tag: test
+#    brief: 分类简介
+#    background: resource/images/background-page.jpg

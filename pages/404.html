@@ -1,0 +1,15 @@
+---
+permalink: /404.html
+layout: fixed
+---
+<div class="container-404">
+  <h1>404</h1>
+  <p><strong>Page not found :(</strong></p>
+  <p>The requested page could not be found.</p>
+</div>
+<script>
+  $(function () {
+    let height = $(window).height()
+    $(".container-404").css("margin-top", (height - 200) / 2)
+  })
+</script>

@@ -1,0 +1,133 @@
+body {
+  height: 100%;
+}
+.day,.night {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+.day {
+  $background: white;
+  $hover: #23527c;
+  $hr-color: #eeeeee;
+  // 页面
+  $page-title: #d7d7d7;
+  $page-subtitle: #c7c7c7;
+  // 文章
+  $copy-hint-background: #f3f3f3;
+  $post-content: #454545;
+  $title: #1a1a1a;
+  $subtitle: #3d3d3d;
+  $brief: #7b7b7b;
+  $tag: #323232;
+  $link: #00c4ff;
+  $catalog-active-bg: #23527c;
+  $catalog-active-color: white;
+  $code-background: #f6f8fa;
+  $code-line-border: #dcdcdc;
+  $code-line-color: #a7a7a7;
+  $code-copy-color: #9e9e9e;
+  $code-copy-background: rgba(230, 233, 236, 0.7);
+  $scrollbar-thumb: #e6e6e6;
+  $table-border: #d0d7de;
+  $table-background: white;
+  $table-background-odd: #f6f8fa;
+
+  // 导航栏
+  $nav-background: $background;
+  $nav-background-mini: #4e4f53;
+  $nav-border: $hr-color;
+  $nav-color-normal: rgba(255, 255, 255, 0.5);
+  $nav-color-hover: $hover;
+  $nav-color-transparent-hover: white;
+  $nav-color-normal-mini: #9c9c9c;
+  $nav-color-hover-mini: $hover;
+  // 搜索框
+  $search-background: #eeeeee;
+  $search-background-hover: #eeeeee;
+  $search-hint: $brief;
+  $search-color: $brief;
+  // switch
+  $switch-color: white;
+  $switch-bg-color: #d2d2d2;
+  $switch-bg-color-hover: $hover;
+  // 分类
+  $category-count-bg: #eeeeee;
+  $category-count-color: #9a9a9a;
+  // github 链接
+  $github-link-color: #777;
+  $github-link-background-hover: $hover;
+  // 分页
+  $pager-background: #eeeeee;
+  $pager-background-hover: $hover;
+  $pager-color: $subtitle;
+  $pager-color-hover: white;
+
+  background-color: $background;
+  @import "styles";
+  @import "markdown";
+  @import "syntax-day";
+}
+
+.night {
+  $background: #38393c;
+  $hover: white;
+  $hr-color: #4e4e4e;
+  // 页面
+  $page-title: #d7d7d7;
+  $page-subtitle: #c7c7c7;
+  // 文章
+  $copy-hint-background: #2d2d2d;
+  $post-content: #d5d5d5;
+  $title: #d7d7d7;
+  $subtitle: #c7c7c7;
+  $brief: #bbbbbb;
+  $tag: #c6c6c6;
+  $link: #0087b1;
+  $catalog-active-bg: #23527c;
+  $catalog-active-color: white;
+  $code-background: #2d2d2d;
+  $code-line-border: #7b7b7b;
+  $code-line-color: #a7a7a7;
+  $code-copy-color: #a7a7a7;
+  $code-copy-background: #4e4e4e;
+  $scrollbar-thumb: #adadad;
+  $table-border: #797c80;
+  $table-background: #38393c;
+  $table-background-odd: #474747;
+
+  // 导航栏
+  $nav-background: $background;
+  $nav-background-mini: #4e4f53;
+  $nav-border: $hr-color;
+  $nav-color-normal: rgba(255, 255, 255, 0.5);
+  $nav-color-hover: $hover;
+  $nav-color-transparent-hover: $hover;
+  $nav-color-normal-mini: #9c9c9c;
+  $nav-color-hover-mini: $hover;
+  // 搜索框
+  $search-background: #9e9e9e;
+  $search-background-hover: #555658;
+  $search-hint: $brief;
+  $search-color: $subtitle;
+  // switch
+  $switch-color: #c7c7c7;
+  $switch-bg-color: #d2d2d2;
+  $switch-bg-color-hover: #23527c;
+  // 分类
+  $category-count-bg: #9e9e9e;
+  $category-count-color: white;
+  // github 链接
+  $github-link-color: #777;
+  $github-link-background-hover: #555658;
+  // 分页
+  $pager-background: #555658;
+  $pager-background-hover: #9e9e9e;
+  $pager-color: $subtitle;
+  $pager-color-hover: $subtitle;
+
+  background-color: $background;
+  @import "styles";
+  @import "markdown";
+  @import "syntax-night";
+}

@@ -1,0 +1,23 @@
+<!-- Footer -->
+<footer id="footer" class="container text-center">
+    <p class="copyright">&copy; 2021 Viifo. Powered by <a href="https://viifo.github.io">Viifo's Blog</a></p>
+    <p class="fork-star">
+        <iframe frameborder="0" scrolling="0" width="80px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=viifo&amp;repo=viifo.github.io&amp;type=fork&amp;count=true"></iframe>
+        |
+        <iframe frameborder="0" scrolling="0" width="80px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=viifo&repo=viifo.github.io&type=star&count=true"></iframe>
+    </p>
+</footer>
+<script>
+    $(window).load(function () {
+        if ($(document).height() <= $(window).height()) {
+            // 页面不能滚动时固定 footer 到底部
+            let footer = $("#footer")
+            footer.css("position", "absolute")
+            footer.css("top", $(window).height() - 100)
+            footer.css("left", "50%")
+            footer.css("transform", "translate(-50%,0)")
+        }
+    })
+</script>
