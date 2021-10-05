@@ -77,7 +77,7 @@ searchJsonKey = function(page, key, flag, element) {
  * @param keyWord - 关键字
  */
 searchKeyWord = function (keyWord, element) {
-    searchObj.searchForJson({ keyWord: keyWord }, function (results) {
+    searchObj.searchForJson({ keyWord: keyWord, limit: 5 }, function (results) {
         element.empty()
         $.each(results, function (index, json) {
             element.append(

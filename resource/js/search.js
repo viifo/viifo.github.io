@@ -23,8 +23,9 @@ function searchForJson(_options, callback) {
             })
         }
         // 分页
-        let start = (options.page - 1) * options.limit
-        let end = options.page * options.limit
+        let limit = _options.limit || options.limit
+        let start = (options.page - 1) * limit
+        let end = options.page * limit
         callback(results.slice(start, end))
     })
 }
@@ -189,6 +190,7 @@ function setOptions(_options) {
     setSearchOptions(_options)
     if (_options) {
         options.path = _options.path || options.path
+        options.limit = _options.limit || options.limit
     }
 }
 
@@ -211,7 +213,6 @@ function setSearchOptions(_options) {
 function setPageOptions(_options) {
     if (_options) {
         options.page = _options.page || options.page
-        options.limit = _options.limit || options.limit
     }
 }
 
