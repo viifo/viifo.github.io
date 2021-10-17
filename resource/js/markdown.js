@@ -58,7 +58,7 @@ $(function () {
         // 点击目录匀速滚动到指定位置
         $(".catalog-body a").click((function () {
             let id = $(this).prop('id')
-            let top = $(id).offset().top
+            let top = $(id).offset().top - 60
             $("html,body").animate({scrollTop: top}, 200)
         }))
     }

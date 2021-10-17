@@ -23,3 +23,36 @@
 .night .post-content img {
   filter: invert(90%);
 }
+
+
+// 自定义代码字体
+pre {
+  code {
+    font-family: JetBrainsMono, serif;
+  }
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url('../fonts/mono/JetBrainsMono-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url('../fonts/mono/JetBrainsMono-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url('../fonts/mono/JetBrainsMono-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url('../fonts/mono/JetBrainsMono-BoldItalic.ttf');
+  font-weight: bold;
+  font-style: italic;
+}
+

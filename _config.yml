@@ -11,6 +11,7 @@ nav-items:
     url: /archive
 
 # Build settings
+encoding: utf-8
 paginate: 10
 exclude: ["README.md","README-en.md","package.json","screenshots"]
 sass:
