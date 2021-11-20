@@ -1,5 +1,6 @@
 .highlighter-rouge {
-  background: #adadad;
+  background: #555555;
+  color: #fa6f6f;
 }
 .highlight {
   pre {
@@ -21,13 +22,14 @@
     padding: 6px 10px;
     border-radius: 3px;
   }
+  .line { color: #cccccc; }
   .c { color: #999999; font-style: italic; }
   .err { color: #a61717; }
-  .k { font-weight: bold; }
+  .k { color: #cc99cd; font-weight: bold; }
   .o { font-weight: bold; }
   .cm { color: #999988; font-style: italic; }
   .cp { color: #999999; font-weight: bold; }
-  .c1 { color: #999988; font-style: italic; }
+  .c1 { color: #999999; font-style: italic; }
   .cs { color: #999999; font-weight: bold; font-style: italic; }
   .gd { color: #000000; background-color: #ffdddd; }
   .gd .x { color: #000000; background-color: #ffaaaa; }
@@ -42,25 +44,28 @@
   .gu { color: #800080; font-weight: bold; }
   .gt { color: #aa0000; }
   .kc { font-weight: bold; }
-  .kd { font-weight: bold; }
+  .kd { color: #cc99cd; font-weight: bold; }
   .kn { font-weight: bold; }
   .kp { font-weight: bold; }
   .kr { font-weight: bold; }
   .kt { color: #445588; font-weight: bold; }
   .m { color: #009999; }
-  .s { color: #dd1144; }
-  .n { color: #333333; }
-  .na { color: #09c602; }
+  .s { color: #7ec699; }
+  .n { color: #dedede; }
+  .na { color: #cccccc; }
   .nb { color: #05aae2; }
-  .nc { color: #445588; font-weight: bold; }
+  .nc { color: #f8c555; font-weight: bold; }
+  .nd { color: #cc99cd; font-weight: bold; }
   .no { color: teal; }
   .ni { color: purple; }
   .ne { color: #990000; font-weight: bold; }
-  .nf { color: #990000; font-weight: bold; }
-  .nn { color: #555555; }
-  .nt { color: #dd1144; }
+  .nf { color: #e48d49; font-weight: bold; }
+  .nn { color: #9e9e9e; }
+  .nt { color: #e2777a; }
   .nv { color: teal; }
   .ow { font-weight: bold; }
+  .p { color: #d7c555; }
+  .py { color: #cccccc; }
   .w { color: #bbbbbb; }
   .mf { color: #009999; }
   .mh { color: #009999; }
