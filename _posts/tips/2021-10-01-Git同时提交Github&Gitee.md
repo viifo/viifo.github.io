@@ -26,21 +26,21 @@ tags:
 
 ```shell
 [core]
-	repositoryformatversion = 0
-	filemode = false
-	bare = false
-	logallrefupdates = true
-	symlinks = false
-	ignorecase = true
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
 [remote "origin"]
     # github 仓库地址
-	url = git@github.com:viifo/pushdemo.git
-	# gitee 仓库地址
-	url = git@gitee.com:viifo/pushdemo.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@github.com:viifo/pushdemo.git
+    # gitee 仓库地址
+    url = git@gitee.com:viifo/pushdemo.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
+    remote = origin
+    merge = refs/heads/master
 ```
 
 
