@@ -30,6 +30,27 @@ function searchForJson(_options, callback) {
     })
 }
 
+
+/**
+ * 返回某一 Json key 的所有值
+ */
+function searchOneKeyValueForJson(jsonkey, callback) {
+    setPageOptions({page: 1, limit: Number.MAX_VALUE})
+    initJsonObject(function () {
+        let results = []
+        for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+                let value = hasKey(data[key], jsonkey)
+                if (value != null) {
+                    results.push(value)
+                }
+            }
+        }
+        callback(results)
+    })
+}
+
+
 /**
  * 返回搜索结果 Json 字符串, 搜索结果被分页
  */
@@ -249,6 +270,7 @@ window.search = function (_options) {
         searchForJson: searchForJson,
         searchCategoriesForJson: searchCategoriesForJson,
         searchOneKeyForJson: searchOneKeyForJson,
+        searchOneKeyValueForJson: searchOneKeyValueForJson,
         groupByDate: groupByDate,
         getPageTotal: getPageTotal
     }

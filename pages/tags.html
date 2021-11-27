@@ -1,0 +1,43 @@
+---
+permalink: /tags.html
+layout: word
+---
+<div class="tags-container">
+    <canvas id="tags-canvas" width="600px" height="600px"></canvas>
+</div>
+<script src="{{ site.url }}/resource/js/wordcloud2.js"></script>
+<script>
+    function loadWordCloud(type) {
+        let color = 'random-light'
+        let backgroundColor = '#ffffff'
+        if (type === 'night') {
+            color = 'random-dark'
+            backgroundColor = '#38393c'
+        }
+        searchWordCloudList('tags', function (list) {
+            WordCloud(
+                $("#tags-canvas")[0],
+                {
+                    list: list,
+                    shape: "cardioid",
+                    maxFontSize: 100, // 最大字号
+                    minFontSize: 14, // 最小字号
+                    fontFamily: 'JetBrainsMono, serif', // 字体
+                    color: color,
+                    backgroundColor: backgroundColor,
+                    drawOutOfBound: false,
+                    shrinkToFit: true,
+                    click: function (item, dimension, event) {
+                        window.location.href = item[2]
+                    }
+                }
+            );
+        })
+    }
+
+    $(function () {
+        $(".work-title h1").text("Tags")
+        $(".work-title h2").text("人生在勤，不索何获。")
+        loadWordCloud(getTheme())
+    })
+</script>

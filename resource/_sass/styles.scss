@@ -759,6 +759,15 @@ hr {
 
 }
 
+//================ Tags ================//
+.tags-container {
+  width: 600px;
+  margin: 0 auto;
+  #tags-canvas {
+    cursor: pointer;
+  }
+}
+
 
 //================ 404 ================//
 .container-404 {

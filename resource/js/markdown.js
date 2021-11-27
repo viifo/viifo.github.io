@@ -204,10 +204,10 @@ $(function () {
         for (i = 0; i < html.length; i ++) {
             if (html.charAt(i) === ' ') {
                 spaces += "&nbsp;"
-            } else if (html.charAt(i) === '│') {
+            } else if (html.charAt(i) === '╎') {
                 // 兼容制表符
                 isTableSymbol = true
-                spaces += "│"
+                spaces += "╎"
             } else {
                 break
             }

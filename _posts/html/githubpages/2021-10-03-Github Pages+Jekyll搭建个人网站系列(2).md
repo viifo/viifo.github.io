@@ -19,14 +19,14 @@ tags:
 
 ```
 .
-├── _posts
-|   └── 2021-09-22-welcome-to-jekyll.markdown
-├── _site
-├── 404.html
-├── _config.yml
-├── about.markdown
-├── Gemfile
-├── Gemfile.lock
++-- _posts
+╎   └── 2021-09-22-welcome-to-jekyll.markdown
++-- _site
++-- 404.html
++-- _config.yml
++-- about.markdown
++-- Gemfile
++-- Gemfile.lock
 └── index.markdown
 ```
 

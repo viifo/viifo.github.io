@@ -36,10 +36,12 @@ $(function () {
         if (body.hasClass("day")) {
             body.removeClass("day")
             body.addClass("night")
+            loadWordCloud("night")
             saveTheme("night")
         } else {
             body.removeClass("night")
             body.addClass("day")
+            loadWordCloud("day")
             saveTheme("day")
         }
     });

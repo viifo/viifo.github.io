@@ -105,5 +105,12 @@ rm 命令用于删除不需要的目录及文件。windows 环境下同样没有
 
 
 
-## 4. mkdir for windows (待更新)
-待更新
+## 4. mkdir for windows
+
+mkdir 命令用于创建目录，如果我们在编写 Makefile 文件中需要创建文件夹，为了实现分隔符统一，我们可以使用 mkdir 工具。windows 环境下没有 mkdir工具，我们需要借助 Cygwin 来获取 。找到文件 x86\release\coreutils\coreutils-8.26-2.tar.xz 并解压，如图 4.1 所示。
+
+![图4.1](/resource/images/tools/cygwin/cmd/2.1.jpg)
+
+ 找到 usr/bin/mkdir.exe 并复制到其他位置。使用  mkdir 创建文件夹，如图所示 4.2 所示。
+
+![图4.2](/resource/images/tools/cygwin/cmd/4.2.jpg)

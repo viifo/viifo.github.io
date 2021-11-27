@@ -9,6 +9,36 @@ let searchObj = search({
     exclude: "url,content"
 })
 
+
+/**
+ * 生成标签词云列表
+ * @param key - json key
+ * @param callback - 结果回调
+ */
+searchWordCloudList = function (key, callback) {
+    searchObj.searchOneKeyValueForJson(key, function (results) {
+        // 单词计数
+        let count = {}
+        let tempArray = results.join(",").split(",")
+        for (let key in tempArray) {
+            if (tempArray.hasOwnProperty(key)) {
+                let index = tempArray[key]
+                count[index] = (count[index] + 1) || 1
+            }
+        }
+        // 处理词云数据
+        let list = []
+        for (let key in count) {
+            if (count.hasOwnProperty(key)) {
+                let ar = [key, count[key] * 50, "{{ site.url }}/tag?flag=" + encodeURI(key)]
+                list.push(ar)
+            }
+        }
+        callback(list)
+    })
+}
+
+
 /**
  * 按搜索 jsonkey 搜索
  * @param page - 页码

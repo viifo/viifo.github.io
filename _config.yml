@@ -9,6 +9,8 @@ nav-items:
     url: /
   - title: "Archives"
     url: /archive
+  - title: "Tags"
+    url: /tags
 
 # Build settings
 encoding: utf-8
@@ -27,6 +29,7 @@ github_username: viifo
 # Background settings
 page-img: resource/images/background-page.jpg
 work-img: resource/images/background-work.jpg
+word-img: resource/images/background-word.jpg
 # todo category setting
 # Category setting
 #category:

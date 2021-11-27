@@ -19,17 +19,17 @@ tags:
 
 ```shell
 .
-├── .deploy_git
-├── .github
-├── node_modules
-├── public
-├── scaffolds
-├── source
-│   ├── _drafts # 当前项目暂shell无此目录
-│   └── _posts
-├── themes
-├── _config.yml
-├── db.json
++-- .deploy_git
++-- .github
++-- node_modules
++-- public
++-- scaffolds
++-- source
+╎   +-- _drafts # 当前项目暂shell无此目录
+╎   └── _posts
++-- themes
++-- _config.yml
++-- db.json
 └── package.json
 ```
 
@@ -58,10 +58,10 @@ tags:
 
 ```shell
 .
-├── _config.yml
-├── languages
-├── layout
-├── scripts
++-- _config.yml
++-- languages
++-- layout
++-- scripts
 └── source
 ```
 
@@ -84,12 +84,12 @@ tags:
 ```shell
 .
 └── themes
-    └── mytheme
-		├── _config.yml
-		├── languages
-		├── layout
-		├── scripts
-		└── source
+╎   └── mytheme
+╎		+-- _config.yml
+╎		+-- languages
+╎		+-- layout
+╎		+-- scripts
+╎		└── source
 ```
 
 修改项目根目录下的项目配置文件 `._config.yml`，找到 `theme` 并修改为如下内容：
