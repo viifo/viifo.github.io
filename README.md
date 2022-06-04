@@ -12,7 +12,7 @@
 
 ## 使用
 
-1. 开始使用前你需要确保你的系统里已经有 Jekyll 环境配置，没有 [参考教程](https://viifo.github.io/html/2021-10-03-Github-Pages-+-Jekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%B3%BB%E5%88%97(1).html) 安装环境；
+1. 开始使用前你需要确保你的系统里已经有 Jekyll 环境配置，没有 [参考教程](https://viifo.github.io/html/2021-10-03-Github-Pages+Jekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%B3%BB%E5%88%97(1).html) 安装环境；
 2. 下载
 ```shell
 git clone git@github.com:viifo/viifo.github.io.git

@@ -12,7 +12,7 @@
 
 ## Usage
 
-1. Before you start to use it, you need to make sure that you have Jekyll environment configuration in your system, refer to the [guide tutorial](https://viifo.github.io/html/2021-10-03-Github-Pages-+-Jekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%B3%BB%E5%88%97(1).html) installation environment.
+1. Before you start to use it, you need to make sure that you have Jekyll environment configuration in your system, refer to the [guide tutorial](https://viifo.github.io/html/2021-10-03-Github-Pages+Jekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%B3%BB%E5%88%97(1).html) installation environment.
 2. Download
 ```shell
 git clone git@github.com:viifo/viifo.github.io.git
