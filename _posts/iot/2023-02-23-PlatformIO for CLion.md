@@ -6,6 +6,7 @@ date:       2023-02-23 16:12:00 +0800
 author:     "Viifo"
 category:   IOT
 tags:
+    - IOT
     - PlatformIO
     - CLion
 ---
@@ -173,7 +174,7 @@ platformio pkg install --library "adafruit/DHT sensor library@^1.4.4"
 
 ![图8.1](/resource/images/iot/platformio_clion/8_1.png)
 
-导入库的头文件后编译报错如下表面确实相关依赖库：
+导入库的头文件后编译报错如下表明缺少相关依赖库：
 
 ```shell
 *************************************************************************
