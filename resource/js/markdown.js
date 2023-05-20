@@ -1,6 +1,9 @@
 $(function () {
     // 查找全部标题 只查找 h1 - h3
     let postContent = $(".post-content")
+    // 插入脚注标题
+    insertFootnotesTitle()
+
     let titles = postContent.find('h1,h2,h3');
     let prevActive = null;
 
@@ -14,6 +17,14 @@ $(function () {
     initImagesStyle()
     // 鼠标悬浮在代码上显示复制图标
     initCopyCodeIcon()
+
+    /**
+     * 插入脚注标题
+     */
+    function insertFootnotesTitle() {
+        let divFootnotes = postContent.find("div.footnotes")
+        divFootnotes.before(`<h2 id="脚注">脚注</h2>`)
+    }
 
     /**
      * 设置图片居中和图片标题
