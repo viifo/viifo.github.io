@@ -255,7 +255,7 @@ $(function () {
                 break
             }
         }
-        spaces = spaces.replaceAll("&nbsp;&nbsp;&nbsp;&nbsp;", "&nbsp;&nbsp;")
+        // spaces = spaces.replaceAll("&nbsp;&nbsp;&nbsp;&nbsp;", "&nbsp;&nbsp;")
         if (isTableSymbol) {
             return spaces + html.trim().substr(i)
         } else {
