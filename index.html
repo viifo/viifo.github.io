@@ -20,7 +20,13 @@ description: "Viifo's Blog"
         {% endfor %}
     </p>
     {% endif %}
-    <p class="attach-info">作者 {{ post.author }} 发布于 {{ post.date | date: "%Y年%m月%d日" }}</p>
+    <p class="attach-info">
+        {% if post.update %}
+        作者 {{ post.author }} 更新于 {{ post.date | date: "%Y年%m月%d日" }}
+        {% else %}
+        作者 {{ post.author }} 发布于 {{ post.date | date: "%Y年%m月%d日" }}
+        {% endif %}
+    </p>
 </div>
 <hr>
 {% endfor %}

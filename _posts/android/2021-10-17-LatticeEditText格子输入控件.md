@@ -2,8 +2,8 @@
 layout:     post
 title:      "LatticeEditText 格子输入框"
 subtitle:   ""
-date:       2021-10-17 10:00:00 +0800
-update:     2023-06-11 12:00:00 +0800
+date:       2023-06-11 12:00:00 +0800
+update:     true
 author:     "Viifo"
 category:   Android
 tags:
