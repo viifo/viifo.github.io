@@ -32,44 +32,51 @@ $(function () {
     function initImagesStyle() {
         let images = postContent.find("img")
         images.each(function () {
-            let parent = $(this).parent("p")
+            let parent = $(this).parent()
+            let tagName = parent.prop("tagName")
             let imgTitle = $(this).attr("alt")
             let imgWidth = $(this).width()
 
-            // 图片居中
-            parent.empty()
-            parent.css("display", "flex")
-            parent.css("flex-direction", "row")
-            parent.css("justify-content", "center")
-            parent.css("justify-items", "center")
-            parent.css("line-height", "50px")
+            if (tagName === "TD") {
+                // 表格中的图片
+                $(this).attr("width", "300px")
+                parent.append(this)
+            } else {
+                // 图片居中
+                parent.empty()
+                parent.css("display", "flex")
+                parent.css("flex-direction", "row")
+                parent.css("justify-content", "center")
+                parent.css("justify-items", "center")
+                parent.css("line-height", "50px")
 
-            let imgWrap = $(`<div></div>`)
-            imgWrap.css("width", imgWidth)
-            imgWrap.css("display", "table-cell")
-            imgWrap.append(this)
-            parent.append(imgWrap)
+                let imgWrap = $(`<div></div>`)
+                imgWrap.css("width", imgWidth)
+                imgWrap.css("display", "table-cell")
+                imgWrap.append(this)
+                parent.append(imgWrap)
 
-            // 处理图片对齐特殊规则 Align:left&Desc:图片描述
-            let tempArr = imgTitle.split('&')
-            let align = tempArr[0]
-            if (align.toLowerCase().startsWith("align")) {
-                let alignArr = align.split(':')
-                if (alignArr.length > 1) {
-                    parent.css("justify-content", alignArr[1])
-                    parent.css("justify-items", alignArr[1])
+                // 处理图片对齐特殊规则 Align:left&Desc:图片描述
+                let tempArr = imgTitle.split('&')
+                let align = tempArr[0]
+                if (align.toLowerCase().startsWith("align")) {
+                    let alignArr = align.split(':')
+                    if (alignArr.length > 1) {
+                        parent.css("justify-content", alignArr[1])
+                        parent.css("justify-items", alignArr[1])
+                    }
+                } else if (imgTitle) {
+                    // 图片标题
+                    imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ $(this).attr("alt") }</span></div>`)
                 }
-            } else if (imgTitle) {
-                // 图片标题
-                imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ $(this).attr("alt") }</span></div>`)
-            }
-            if (tempArr.length > 1) {
-                let desc = tempArr[1]
-                if (desc.toLowerCase().startsWith("desc")) {
-                    let descArr = desc.split(':')
-                    if (descArr.length > 1 && descArr[1].trim().length > 0) {
-                        // 图片标题
-                        imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ descArr[1] }</span></div>`)
+                if (tempArr.length > 1) {
+                    let desc = tempArr[1]
+                    if (desc.toLowerCase().startsWith("desc")) {
+                        let descArr = desc.split(':')
+                        if (descArr.length > 1 && descArr[1].trim().length > 0) {
+                            // 图片标题
+                            imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ descArr[1] }</span></div>`)
+                        }
                     }
                 }
             }
