@@ -119,7 +119,7 @@ $(function () {
     function initCodeLine() {
         $("pre.highlight").find("code").each(function () {
             let code = $(this)
-            let lines = $(this).html().split(/[\r|\n]/)
+            let lines = $(this).html().split(/[\r\n]/)
             code.empty()
             for (let i = 0; i < lines.length; i ++) {
                 if (i < lines.length - 1 || (i === lines.length - 1 && lines[i].trim() !== '')) {
