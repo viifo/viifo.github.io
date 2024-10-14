@@ -109,7 +109,7 @@ tags:
 
 ## 3. 显示文字的 Thumb
 
-默认的 `thumb` 无法在上面显示文字，而自定义 `View` 的成本有比较高，所以选择自定义 `Drawable` 来实现显示文字的 `thumb`。
+默认的 `thumb` 无法在上面显示文字，而自定义 `View` 的成本又比较高，所以选择自定义 `Drawable` 来实现显示文字的 `thumb`。
 
 新建类 `TextThumbDrawable` 并继承 `Drawable` 实现框架如下所示：
 
@@ -167,7 +167,7 @@ class TextThumbDrawable(mState: TextThumbState? = null) : Drawable() {
     }
 
     /**
-     * 要在 XML 文件中定义此 Drawable，必须重写此方法，以确保 Drawable 被正确的实例化 (inflate)
+     * 要在 XML 文件中定义此 Drawable，必须重写此方法，以确保 Drawable 能被正确的实例化 (inflate)
      * 若自定义的 Drawable 存在无参构造函数，也可以不重写此方法或者返回 null
      */
     override fun getConstantState(): ConstantState? {
