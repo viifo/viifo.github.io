@@ -56,28 +56,52 @@ $(function () {
                 imgWrap.append(this)
                 parent.append(imgWrap)
 
-                // 处理图片对齐特殊规则 Align:left&Desc:图片描述
-                let tempArr = imgTitle.split('&')
-                let align = tempArr[0]
-                if (align.toLowerCase().startsWith("align")) {
-                    let alignArr = align.split(':')
-                    if (alignArr.length > 1) {
-                        parent.css("justify-content", alignArr[1])
-                        parent.css("justify-items", alignArr[1])
+                // 处理图片对齐、大小等特殊规则
+                // 图片标题应该放在图片描述前面
+                // Align:left&Height:size&Width:size&Title:图片标题&Desc:图片描述
+                if (imgTitle.includes("&")) {
+                    let tempArr = imgTitle.split('&')
+                    let name = null
+                    for (let i = 0; i < tempArr.length; i ++) {
+                        name = tempArr[i].toLowerCase()
+                        if (name.startsWith("align")) {
+                            let alignArr = name.split(':')
+                            if (alignArr.length > 1) {
+                                parent.css("justify-content", alignArr[1])
+                                parent.css("justify-items", alignArr[1])
+                            }
+                        } else if (name.startsWith("height")) {
+                            // 图片高度
+                            let heightArr = name.split(':')
+                            if (heightArr.length > 1 && heightArr[1].trim().length > 0) {
+                                $(this).attr("height", heightArr[1])
+                                imgWrap.css("height", heightArr[1])
+                                imgWrap.css("width", $(this).width())
+                            }
+                        } else if (name.startsWith("width")) {
+                            // 图片宽度
+                            let widthArr = name.split(':')
+                            if (widthArr.length > 1 && widthArr[1].trim().length > 0) {
+                                imgWrap.css("width", widthArr[1])
+                                $(this).attr("width", widthArr[1])
+                            }
+                        } else if (name.startsWith("title")) {
+                            // 图片标题
+                            let titleArr = name.split(':')
+                            if (titleArr.length > 1 && titleArr[1].trim().length > 0) {
+                                imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ titleArr[1] }</span></div>`)
+                            }
+                        } else if (name.startsWith("desc")) {
+                            // 图片描述
+                            let descArr = name.split(':')
+                            if (descArr.length > 1 && descArr[1].trim().length > 0) {
+                                imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ descArr[1] }</span></div>`)
+                            }
+                        }
                     }
                 } else if (imgTitle) {
                     // 图片标题
-                    imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ $(this).attr("alt") }</span></div>`)
-                }
-                if (tempArr.length > 1) {
-                    let desc = tempArr[1]
-                    if (desc.toLowerCase().startsWith("desc")) {
-                        let descArr = desc.split(':')
-                        if (descArr.length > 1 && descArr[1].trim().length > 0) {
-                            // 图片标题
-                            imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ descArr[1] }</span></div>`)
-                        }
-                    }
+                    imgWrap.append(`<div style="text-align: center"><span class="post-img-title">${ imgTitle }</span></div>`)
                 }
             }
         })

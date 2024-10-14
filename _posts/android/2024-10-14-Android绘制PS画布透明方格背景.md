@@ -14,13 +14,13 @@ tags:
 
 ## 1. 效果预览
 
-![preview](/resource/images/android/translatebg/preview.jpg)
+![Align:center&Height:300px&Title:preview](/resource/images/android/translatebg/preview.jpg)
 
 
 
 ## 2. 实现透明方格背景
 实现 PS 透明方格背景样式的关键在于需要一个方格背景图片，如图 2.1 所示。
-![图2.1](/resource/images/android/translatebg/2_1.png)
+![Width:120px&Title:图2.1](/resource/images/android/translatebg/2_1.png)
 
 实际上就是将方格图片以重复平铺的方式画在背景上，代码如下：
 
