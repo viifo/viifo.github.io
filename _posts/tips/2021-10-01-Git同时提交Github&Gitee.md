@@ -74,5 +74,8 @@ git pull gitee master
 git push github master
 # 将 mater 分支推送到 gitee 仓库
 git push gitee master
+
+# 将 mater 分支同时推送到 github 和 gitee 仓库
+git push origin master
 ```
 
