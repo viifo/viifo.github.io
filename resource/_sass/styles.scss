@@ -618,6 +618,10 @@ hr {
           color: $title;
         }
       }
+      .series-title-catalog {
+        font-size: 18px !important;
+        font-weight: bold;
+      }
       .title-catalog {
         width: 100%;
         display: block;
@@ -639,8 +643,16 @@ hr {
           display: block;
           padding: 5px;
         }
+        .h1 {
+          font-size: 14px;
+        }
         .h2,.h3 {
           font-size: 12px;
+        }
+        .series-li-active {
+          a {
+            color: $catalog-active-bg !important;
+          }
         }
         .active {
           background: $catalog-active-bg;
@@ -728,6 +740,7 @@ hr {
   .title {
     font-size: 30px;
     color: $title;
+    margin-bottom: 30px;
   }
   .split {
     margin-top: 50px;

@@ -1,10 +1,12 @@
 ---
-layout:     post
-title:      "Github Pages + Jekyll 搭建个人网站系列（一）"
-subtitle:   "简单尝试&环境搭建"
+layout:     series
+title:      "简单尝试&环境搭建"
+subtitle:   ""
 date:       2021-10-03 08:00:00 +0800
 author:     "Viifo"
 category:   HTML
+series:     GitHub Pages + Jekyll 搭建个人网站
+number:     1
 tags:
     - github
     - jekyll

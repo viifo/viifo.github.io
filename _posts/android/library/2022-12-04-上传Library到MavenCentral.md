@@ -1,10 +1,13 @@
 ---
-layout:     post
-title:      "Android 上传 Library 到 MavenCentral"
+layout:     series
+title:      "上传 Library 到 MavenCentral"
 subtitle:   ""
 date:       2022-12-04 16:21:00 +0800
 author:     "Viifo"
 category:   Android
+series:     上传 Library 到中心仓库
+number:     4
+hidden:     true
 tags:
     - maven
 ---

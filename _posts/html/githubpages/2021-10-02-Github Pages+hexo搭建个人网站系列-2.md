@@ -1,10 +1,13 @@
 ---
-layout:     post
-title:      "Github Pages + hexo搭建个人网站系列（二）"
-subtitle:   "主题&模板"
+layout:     series
+title:      "主题&模板"
+subtitle:   ""
 date:       2021-10-02 09:00:00 +0800
 author:     "Viifo"
 category:   HTML
+series:     GitHub Pages + Hexo 搭建个人网站
+number:     2
+hidden:     true
 tags:
     - github
     - hexo

@@ -1,10 +1,13 @@
 ---
-layout:     post
-title:      "上传 Android Library 到 jitpack.io"
+layout:     series
+title:      "上传 Library 到 jitpack.io"
 subtitle:   ""
 date:       2022-05-08 18:35:00 +0800
 author:     "Viifo"
 category:   Android
+series:     上传 Library 到中心仓库
+number:     2
+hidden:     true
 tags:
     - jitpack.io
 ---

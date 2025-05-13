@@ -5,9 +5,17 @@ description: "Viifo's Blog"
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url }}">
+        <!-- 优先展示系列标题 -->
+        {% if post.series %}
+        <h1>{{ post.series }}</h1>
+        {% else %}
         <h1>{{ post.title }}</h1>
+
+        <!-- 非系列文章才展示 subtitle -->
         {% if post.subtitle %}
         <h2>{{ post.subtitle }}</h2>
+        {% endif %}
+
         {% endif %}
         <p class="brief">{{ post.content | strip_html | strip_newlines | truncate:200 }}</p>
     </a>

@@ -1,10 +1,12 @@
 ---
-layout:     post
-title:      "搭建并上传 Library 到私有 Maven 仓库"
+layout:     series
+title:      "上传 Library 到私有 Maven 仓库"
 subtitle:   ""
 date:       2022-05-06 14:00:00 +0800
 author:     "Viifo"
 category:   Android
+series:     上传 Library 到中心仓库
+number:     1
 tags:
     - nexus
     - maven

@@ -61,7 +61,13 @@ function searchOneKeyForJson(_options, jsonkey, flag, callback) {
         for (let key in data) {
             if (data.hasOwnProperty(key)) {
                 let value = hasKey(data[key], jsonkey)
-                if (value != null && ((flag === "" && value === "") || (flag !== "" && value.indexOf(flag) >= 0))) {
+                let series = hasKey(data[key], "series")
+                let seriesNumber = hasKey(data[key], "number")
+                if (value != null && (seriesNumber === "1" || seriesNumber === "") && ((flag === "" && value === "") || (flag !== "" && value.indexOf(flag) >= 0))) {
+                    // 系列文章只显示第一篇，且标题为系列标题
+                    if (seriesNumber === "1") {
+                        data[key].title = series
+                    }
                     results.push(data[key])
                 }
             }
@@ -83,10 +89,14 @@ function searchCategoriesForJson(category, callback) {
         for (let key in data) {
             if (data.hasOwnProperty(key) && data[key].hasOwnProperty(category)) {
                 let json = data[key]
-                if (json[category].trim() === '') {
-                    results = countCategory(results,"other")
-                } else {
-                    results = countCategory(results, json[category])
+                let seriesNumber = hasKey(data[key], "number")
+                // 系列文章只统计一次
+                if (seriesNumber === "1" || seriesNumber === "") {
+                    if (json[category].trim() === '') {
+                        results = countCategory(results,"other")
+                    } else {
+                        results = countCategory(results, json[category])
+                    }
                 }
             }
         }
@@ -261,6 +271,33 @@ function getPageTotal() {
 }
 
 /**
+ * 系列排序，升
+ * @param item1
+ * @param item2
+ */
+function compareSeries(item1,item2) {
+    return item1["number"] - item2["number"]
+}
+
+/**
+ * 搜索相关系列文章
+ * @param category
+ * @param callback
+ */
+function searchSeriesForJson(series, callback) {
+    initJsonObject(function () {
+        let results = []
+        for (let key in data) {
+            if (data.hasOwnProperty(key) && data[key].hasOwnProperty("series") && data[key]["series"] === series) {
+                results.push(data[key])
+            }
+        }
+        results.sort(compareSeries)
+        callback(results)
+    })
+}
+
+/**
  * 搜索
  * @param _options
  */
@@ -271,6 +308,7 @@ window.search = function (_options) {
         searchCategoriesForJson: searchCategoriesForJson,
         searchOneKeyForJson: searchOneKeyForJson,
         searchOneKeyValueForJson: searchOneKeyValueForJson,
+        searchSeriesForJson: searchSeriesForJson,
         groupByDate: groupByDate,
         getPageTotal: getPageTotal
     }

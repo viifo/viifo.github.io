@@ -55,6 +55,11 @@ git remote -v
 # github  git@github.com:viifo/pushdemo.git (push)
 ```
 
+初始化仓库后也可以通过 `IDE` 添加，如图 2.1 和图 2.2 所示。
+
+![图 2.1](/resource/images/tips/git/push2repo_2_1.png)
+
+![图 2.2](/resource/images/tips/git/push2repo_2_2.png)
 
 
 ## 3. 同步记录

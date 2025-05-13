@@ -34,20 +34,20 @@ layout: default
                 <!-- pager -->
                 <ul class="pager">
                     {% if page.previous.url %}
-                    <li class="next">
+                    <li class="previous">
                         <a href="{{ page.previous.url | replace: '//', '/' }}" title="{{page.previous.title}}">
-                            <span class="txt">{{page.previous.title}}</span>
-                            <span class="flag">&nbsp;:上一篇<i class="fa fa-angle-double-right"></i></span>
+                            <span class="txt">
+                                <span class="flag"><i class="fa fa-angle-double-left"></i>上一篇:&nbsp;</span>
+                                {{page.previous.title}}
+                            </span>
                         </a>
                     </li>
                     {% endif %}
                     {% if page.next.url %}
-                    <li class="previous">
+                    <li class="next">
                         <a href="{{ page.next.url | replace: '//', '/' }}" title="{{page.next.title}}">
-                            <span class="txt">
-                                <span class="flag"><i class="fa fa-angle-double-left"></i>下一篇: &nbsp;</span>
-                                {{page.next.title}}
-                            </span>
+                            <span class="flag"><i class="fa fa-angle-double-right"></i>下一篇: &nbsp;</span>
+                            <span class="txt">{{page.next.title}}</span>
                         </a>
                     </li>
                     {% endif %}

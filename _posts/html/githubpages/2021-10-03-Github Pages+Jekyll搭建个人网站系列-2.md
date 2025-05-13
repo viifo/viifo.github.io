@@ -1,10 +1,13 @@
 ---
-layout:     post
-title:      "Github Pages + Jekyll 搭建个人网站系列（二）"
-subtitle:   "模板修改"
+layout:     series
+title:      "模板修改"
+subtitle:   ""
 date:       2021-10-03 09:00:00 +0800
 author:     "Viifo"
 category:   HTML
+series:     GitHub Pages + Jekyll 搭建个人网站
+number:     2
+hidden:     true
 tags:
     - github
     - jekyll

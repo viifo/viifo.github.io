@@ -8,11 +8,20 @@ $(function () {
     let prevActive = null;
 
     // 初始化文章目录
-    initCatalog()
+    if ($(".catalog-body").hasClass("series")) {
+        // 是系列文章
+        initSeriesCatalog()
+        // 页面滚动监听
+        initSeriesScrollListener()
+    } else {
+        // 是普通文章
+        initCatalog()
+        // 页面滚动监听
+        initScrollListener()
+    }
+
     // 生成代码行
     initCodeLine()
-    // 页面滚动监听
-    initScrollListener()
     // 设置图片居中和图片标题
     initImagesStyle()
     // 鼠标悬浮在代码上显示复制图标
@@ -108,13 +117,37 @@ $(function () {
     }
 
     /**
+     * 初始化系列文章目录
+     */
+    function initSeriesCatalog() {
+        loadSeries($("#series").text(), function (series) {
+            // console.log("series = " + JSON.stringify(series))
+            // 创建系列目录
+            createSeriesCatalog(".catalog-body", series);
+            // 创建系列文章内容分页器（上一篇|下一篇）
+            createSeriesPager(".pager", series)
+            // 选中目录
+            setCategoryActive(true, "series-li-active")
+            // 点击目录匀速滚动到指定位置
+            $(".catalog-body a").click((function () {
+                let id = $(this).prop('id')
+                let href = $(this).prop('href')
+                if (href === "javascript:;") {
+                    let top = $(id).offset().top - 60
+                    $("html,body").animate({scrollTop: top}, 200)
+                }
+            }))
+        })
+    }
+
+    /**
      * 初始化文章目录
      */
     function initCatalog() {
         // 创建目录
         createCatalog(".catalog-body");
         // 选中目录
-        setCategoryActive(true)
+        setCategoryActive(true, "active")
         // 点击目录标题折叠目录
         $(".title-catalog").click((function () {
             let icon = $(this).find("i")
@@ -213,14 +246,32 @@ $(function () {
                 catalog.css("top", "0")
                 catalog.css("margin-top", "160px")
             }
-            setCategoryActive(false)
+            setCategoryActive(false, "active")
+        })
+    }
+
+    /**
+     * 系列页面滚动监听
+     */
+    function initSeriesScrollListener() {
+        let catalog = $(".page-catalog")
+        let catalogWidth = catalog.css("width")
+        catalog.css("position", "fixed")
+        catalog.css("margin-top", "70px")
+        catalog.css("top", "0")
+        catalog.css("width", catalogWidth)
+        catalog.css("height", "100%")
+        catalog.css("overflow-y", "scroll")
+
+        $(window).scroll(function() {
+            setCategoryActive(false, "series-li-active")
         })
     }
 
     /**
      * 设置新的目录选中状态
      */
-    function setCategoryActive(init) {
+    function setCategoryActive(init, activeClassName) {
         titles.each(function () {
             let offsetTop = $(this).offset().top
             let scrollTop = $(document).scrollTop()
@@ -231,11 +282,93 @@ $(function () {
             } else if (init && top < 0) {
                 prevActive = element;
             }
-            element.removeClass("active")
+            element.removeClass(activeClassName)
         })
         if (prevActive) {
-            prevActive.addClass("active")
+            prevActive.addClass(activeClassName)
         }
+    }
+
+    /**
+     * 创建系列文章内容分页器（上一篇|下一篇）
+     * @param pagerSelector
+     * @param series
+     */
+    function createSeriesPager(pagerSelector, series) {
+        // 清除原内容
+        let pager = $(pagerSelector)
+        pager.html('')
+        // 当前页面内容
+        let currentNumber = $("#series-number").text()
+        series.forEach(function (item, index) {
+
+            console.log("currentNumber = " + currentNumber)
+            if ((index + 2).toString() === currentNumber) {
+                // 上一篇
+                pager.append(
+                    `<li class="previous">
+                        <a href="${ item.url }" title="${ item.title }">
+                            <span class="flag"><i class="fa fa-angle-double-left"></i>上一篇:&nbsp;</span>
+                            <span class="txt">${ item.title }</span>
+                        </a>
+                    </li>`)
+            } else if ((index).toString() === currentNumber) {
+                // 下一篇
+                pager.append(
+                    `<li class="next">
+                        <a href="${ item.url }" title="${ item.title }">
+                            <span class="txt">
+                                <span class="flag"><i class="fa fa-angle-double-right"></i>下一篇: &nbsp;</span>
+                                ${ item.title }
+                            </span>
+                        </a>
+                    </li>`)
+            }
+        })
+    }
+
+    /**
+     * 创建系列目录
+     * @param categorySelector
+     * @param series
+     */
+    function createSeriesCatalog(categorySelector, series) {
+        // 清除原内容
+        let currentNumber = $("#series-number").text()
+        let category = $(categorySelector)
+        category.html('')
+        // 动态生成目录列表
+        series.forEach(function (item) {
+            let activeCss = ""
+            if (item.number === currentNumber) {
+                activeCss = "active"
+            }
+            // 系列文章列表
+            category.append(
+                `<li class="cl-${ item.number } ${ activeCss }">
+                    <a id="#${ item.number }" class="h1" href="${ item.url }" rel="nofollow">${ item.title }</a>
+                </li>`);
+            // 对应文章内的内容目录
+            if (item.number === currentNumber) {
+                titles.each(function () {
+                    let tagName = $(this)[0].tagName
+                    let tagClass = ""
+                    if (tagName === "H2") {
+                        tagName = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        tagClass = "h2"
+                    } else if (tagName === "H3") {
+                        tagName = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        tagClass = "h3"
+                    } else {
+                        tagName = "&nbsp;&nbsp;&nbsp;&nbsp;"
+                    }
+                    category.append(
+                        `<li class="cl-${ $(this).prop('id') }">
+                            ${tagName}<a id="#${ $(this).prop('id') }" class="${tagClass}" href="javascript:;" rel="nofollow">${ $(this).text() }</a>
+                        </li>`);
+                });
+            }
+        });
     }
 
     /**

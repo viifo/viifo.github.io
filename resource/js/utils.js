@@ -169,6 +169,16 @@ groupByDate = function (element, yearStr) {
    })
 }
 
+/**
+ * 加载系列目录
+ * @param series
+ * @param callback
+ */
+loadSeries = function (series, callback) {
+    searchObj.searchSeriesForJson(series, function (seriesList) {
+        callback(seriesList)
+    })
+}
 
 /**
  * 获取当前 url

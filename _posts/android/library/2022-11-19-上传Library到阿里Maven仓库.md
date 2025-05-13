@@ -1,10 +1,13 @@
 ---
-layout:     post
-title:      "Android 上传 Library 到阿里 Maven 仓库"
+layout:     series
+title:      "上传 Library 到阿里 Maven 仓库"
 subtitle:   ""
 date:       2022-11-19 19:00:00 +0800
 author:     "Viifo"
 category:   Android
+series:     上传 Library 到中心仓库
+number:     3
+hidden:     true
 tags:
     - maven
 ---
