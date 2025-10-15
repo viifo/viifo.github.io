@@ -5,7 +5,7 @@ subtitle:   ""
 date:       2021-10-01 18:00:00 +0800
 update:     2022-11-18 10:00:00 +0800
 author:     "Viifo"
-category:   Tips
+category:   Git
 tags:
     - git
 ---
@@ -15,9 +15,9 @@ tags:
 
 创建Github仓库和 Gitee 仓库如图 1.1 和图 1.2 所示。
 
-![图 1.1](/resource/images/tips/git/push2repo_1_1.jpg)
+![图 1.1](/resource/images/git/push2repo_1_1.jpg)
 
-![图 1.2](/resource/images/tips/git/push2repo_1_2.jpg)
+![图 1.2](/resource/images/git/push2repo_1_2.jpg)
 
 
 
@@ -57,9 +57,9 @@ git remote -v
 
 初始化仓库后也可以通过 `IDE` 添加，如图 2.1 和图 2.2 所示。
 
-![图 2.1](/resource/images/tips/git/push2repo_2_1.png)
+![图 2.1](/resource/images/git/push2repo_2_1.png)
 
-![图 2.2](/resource/images/tips/git/push2repo_2_2.png)
+![图 2.2](/resource/images/git/push2repo_2_2.png)
 
 
 ## 3. 同步记录
